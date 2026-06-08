@@ -15,8 +15,7 @@ export class SignInPage {
   }
 
   async assertErrorMessageContainsText(expectedMessage) {
-    await this.step(`Assert that error message 
-    contains text: ${expectedMessage}`, async () => {
+    await this.step(`Assert that error message contains text: ${expectedMessage}`, async () => {
       await expect(this.errorMessage).toContainText(expectedMessage);
     });
   }

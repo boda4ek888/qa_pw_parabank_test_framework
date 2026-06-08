@@ -91,8 +91,7 @@ export class PayBillPage {
       `Assert that bill pay result has correct values`,
       async () => {
         await expect(this.billPayResult).toContainText(
-          `Bill Payment to ${name} in the amount of $${amount} 
-          from account ${accountId} was successful.`,
+          `Bill Payment to ${name} in the amount of $${amount} from account ${accountId} was successful.`,
         );
       },
     );

@@ -23,7 +23,7 @@ export class AccountOverviewPage {
   async assertAccountIdValue(id) {
     await this.step(`Assert account ID value is ${id}`, async () => {
       await expect(this.accountId).toHaveText(id);
-    })
+    });
   }
 
   async assertAccountType(type) {
