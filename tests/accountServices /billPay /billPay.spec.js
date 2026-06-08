@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { faker } from '@faker-js/faker';
 import { signUpUser } from '../../../src/ui/actions/signUpUser';
+import { label, severity } from 'allure-js-commons';
 
 const VALID_AMOUNT = '100.00';
 const ACCOUNT_NUMBER = faker.string.numeric(5);
@@ -12,6 +13,11 @@ test.beforeEach(async ({ page, user }) => {
 test('Successfully pay a bill', async ({
   homePage, user, payBillPage
 }) => {
+  await label('parentSuite', 'Parabank');
+  await label('suite', 'Account Services');
+  await label('subSuite', 'Bill Pay');
+  await severity('critical');
+
   await homePage.open();
   await homePage.clickBillPayLink();
   await payBillPage.fillPayeeNameField(user.firstName);

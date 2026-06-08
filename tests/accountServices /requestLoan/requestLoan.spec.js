@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/signUpUser';
+import { label, severity } from 'allure-js-commons';
 
 const AMOUNT = '100';
 const DOWN_PAYMENT = '50';
@@ -11,6 +12,11 @@ const APPROVED_STATUS = 'Approved';
     page,
     user,
   }) => {
+    await label('parentSuite', 'Parabank');
+    await label('suite', 'Account Services');
+    await label('subSuite', 'Request Loan');
+    await severity('normal');
+
     await signUpUser(page, user);
 
     await homePage.open();

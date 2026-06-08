@@ -1,11 +1,14 @@
 import { test } from '../../_fixtures/fixtures';
-import { severity } from 'allure-js-commons';
+import { label, severity } from 'allure-js-commons';
 
 test.beforeEach(async ({ signUpPage }) => {
   await signUpPage.open();
 });
 
 test('User signs up successfully', async ({ user, signUpPage }) => {
+  await label('parentSuite', 'Parabank');
+  await label('suite', 'Auth');
+  await label('subSuite', 'Sign Up');
   await severity('critical');
 
   await signUpPage.fillFirstNameField(user.firstName);

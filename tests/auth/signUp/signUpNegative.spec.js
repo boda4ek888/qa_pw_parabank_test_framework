@@ -22,6 +22,9 @@ test.describe('Signs up negative tests', () => {
       user,
       signUpPage,
     }) => {
+      await label('parentSuite', 'Parabank');
+      await label('suite', 'Auth');
+      await label('subSuite', 'Sign Up');
       await severity('normal');
 
       const testUser = { ...user, [emptyField]: '' };

@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/signUpUser';
 import { generateNewUserData } from '../../../src/common/testData/generateNewUserData';
+import { label, severity } from 'allure-js-commons';
 
 const NEW_USER = generateNewUserData();
 
@@ -12,6 +13,11 @@ test('Successful `Update Contact Info` flow test', async ({
   homePage,
   updateInfoPage,
 }) => {
+  await label('parentSuite', 'Parabank');
+  await label('suite', 'Account Services');
+  await label('subSuite', 'Update Contact Info');
+  await severity('normal');
+
   await homePage.open();
   await homePage.clickUpdateContactInfoLink();
   await updateInfoPage.fillFirstNameField(NEW_USER.firstName);

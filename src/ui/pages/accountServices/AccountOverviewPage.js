@@ -8,6 +8,11 @@ export class AccountOverviewPage {
     this.accountOverviewPanel = page.locator('#overviewAccountsApp');
     this.accountId = page.locator('#accountId');
     this.accountType = page.locator('#accountType');
+    this.firstAccountLink = page.locator('#accountTable tbody a').first();
+    this.activityPeriodSelect = page.locator('#month');
+    this.transactionTypeSelect = page.locator('#transactionType');
+    this.goButton = page.locator('input[value="Go"]');
+    this.transactionTable = page.locator('#transactionTable');
   }
 
   async step(title, stepToRun) {
@@ -29,6 +34,34 @@ export class AccountOverviewPage {
   async assertAccountType(type) {
     await this.step(`Assert account type is ${type}`, async () => {
       await expect(this.accountType).toHaveText(type);
+    });
+  }
+
+  async getFirstAccountId() {
+    return (await this.firstAccountLink.textContent()).trim();
+  }
+
+  async clickFirstAccountLink() {
+    await this.step('Click on first account link', async () => {
+      await this.firstAccountLink.click();
+    });
+  }
+
+  async selectTransactionType(type) {
+    await this.step(`Select transaction type '${type}'`, async () => {
+      await this.transactionTypeSelect.selectOption(type);
+    });
+  }
+
+  async clickGoButton() {
+    await this.step(`Click on 'Go' button`, async () => {
+      await this.goButton.click();
+    });
+  }
+
+  async assertTransactionTableVisible() {
+    await this.step(`Assert transaction table is visible`, async () => {
+      await expect(this.transactionTable).toBeVisible();
     });
   }
 }

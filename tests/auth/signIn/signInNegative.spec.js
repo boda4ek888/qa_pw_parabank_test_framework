@@ -4,6 +4,7 @@ import {
   EMPTY_USERNAME_OR_PASSWORD_MESSAGE,
 } from '../../../src/ui/constants/authErrorMessages';
 import { generateNewUserData } from '../../../src/common/testData/generateNewUserData';
+import { label, severity } from 'allure-js-commons';
 
 const user = generateNewUserData();
 const testParameters = [
@@ -30,6 +31,11 @@ const testParameters = [
 testParameters.forEach(({ username, password, message, title }) => {
   test.describe('Sign in negative tests', () => {
     test(`Sign in with ${title}`, async ({ homePage, signInPage }) => {
+      await label('parentSuite', 'Parabank');
+      await label('suite', 'Auth');
+      await label('subSuite', 'Sign In');
+      await severity('normal');
+
       await homePage.open();
       await homePage.fillUsernameField(username);
       await homePage.fillPasswordField(password);

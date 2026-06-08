@@ -24,6 +24,8 @@ export class HomePage {
     this.requestLoanLink = this.accountServicesPanel.getByText('Request Loan');
     this.transferFundsLink = this.accountServicesPanel.getByText('Transfer' +
       ' Funds');
+    this.findTransactionsLink =
+      this.accountServicesPanel.getByText('Find Transactions');
   }
 
   async step(title, stepToRun) {
@@ -87,6 +89,12 @@ export class HomePage {
   async clickRequestLoanLink() {
     await this.step(`Click on 'Request Loan' link`, async () => {
       await this.requestLoanLink.click();
+    });
+  }
+
+  async clickFindTransactionsLink() {
+    await this.step(`Click on 'Find Transactions' link`, async () => {
+      await this.findTransactionsLink.click();
     });
   }
 

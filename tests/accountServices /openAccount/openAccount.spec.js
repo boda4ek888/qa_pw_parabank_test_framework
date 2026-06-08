@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/signUpUser';
+import { label, severity } from 'allure-js-commons';
 
 const accountTypes = ['CHECKING', 'SAVINGS'];
 
@@ -9,6 +10,11 @@ accountTypes.forEach((accountType) => {
     openAccountPage,
     accountOverviewPage, page, user
   }) => {
+    await label('parentSuite', 'Parabank');
+    await label('suite', 'Account Services');
+    await label('subSuite', 'Open New Account');
+    await severity('critical');
+
     await signUpUser(page, user);
 
     await homePage.open();

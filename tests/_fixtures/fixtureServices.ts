@@ -1,5 +1,6 @@
 import { test as base } from '@playwright/test';
 import { AccountOverviewPage } from '../../src/ui/pages/accountServices/AccountOverviewPage';
+import { FindTransactionsPage } from '../../src/ui/pages/accountServices/FindTransactionsPage';
 import { OpenAccountPage } from '../../src/ui/pages/accountServices/OpenAccountPage';
 import { PayBillPage } from '../../src/ui/pages/accountServices/PayBillPage';
 import { RequestLoanPage } from '../../src/ui/pages/accountServices/RequestLoanPage';
@@ -7,6 +8,7 @@ import { TransferFundsPage } from '../../src/ui/pages/accountServices/TransferFu
 
 export const test = base.extend<{
   accountOverviewPage: AccountOverviewPage;
+  findTransactionsPage: FindTransactionsPage;
   openAccountPage: OpenAccountPage;
   payBillPage: PayBillPage;
   requestLoan: RequestLoanPage;
@@ -16,6 +18,11 @@ export const test = base.extend<{
     const accountOverviewPage = new AccountOverviewPage(page);
 
     await use(accountOverviewPage);
+  },
+  findTransactionsPage: async ({ page }, use) => {
+    const findTransactionsPage = new FindTransactionsPage(page);
+
+    await use(findTransactionsPage);
   },
   openAccountPage: async ({ page }, use) => {
     const openAccountPage = new OpenAccountPage(page);
