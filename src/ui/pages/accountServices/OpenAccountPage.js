@@ -1,5 +1,4 @@
 import { testStep } from '../../../common/helpers/pwHelpers';
-import { expect } from '@playwright/test';
 
 export class OpenAccountPage {
   constructor(page, userId = 0) {
@@ -46,12 +45,6 @@ export class OpenAccountPage {
   async clickAccountIdLink() {
     await this.step('Click on Account Id link', async () => {
       await this.newAccountId.click();
-    });
-  }
-
-  async assertAccountOverviewPanelVisible() {
-    await this.step(`Assert that overview panel is visible`, async () => {
-      await expect(this.accountOverviewPanel).toBeVisible();
     });
   }
 }

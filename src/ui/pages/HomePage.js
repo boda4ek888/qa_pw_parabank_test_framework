@@ -104,9 +104,9 @@ export class HomePage {
 
   async assertWelcomeTextVisible(firstName, lastName) {
     await this.step(`Assert that welcome text is visible`, async () => {
-      const welcomeText = this.page.getByText(`Welcome 
-      ${firstName} ${lastName}`);
-      await expect(welcomeText).toBeVisible();
+      await expect(
+        this.page.getByText(`Welcome ${firstName} ${lastName}`),
+      ).toBeVisible();
     });
   }
 

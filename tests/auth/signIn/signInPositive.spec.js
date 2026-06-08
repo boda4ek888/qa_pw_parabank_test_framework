@@ -1,8 +1,8 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/signUpUser';
 
-test.beforeEach(async ({ pages, user }) => {
-  await signUpUser(pages[0], user);
+test.beforeEach(async ({ page, user }) => {
+  await signUpUser(page, user);
 });
 
 test('Successful `Sign in` flow test', async ({ user, homePage }) => {

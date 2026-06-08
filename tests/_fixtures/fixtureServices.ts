@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { AccountOverviewPage } from '../../src/ui/pages/accountServices/AccountOverviewPage'
+import { AccountOverviewPage } from '../../src/ui/pages/accountServices/AccountOverviewPage';
 import { OpenAccountPage } from '../../src/ui/pages/accountServices/OpenAccountPage';
 import { PayBillPage } from '../../src/ui/pages/accountServices/PayBillPage';
 import { RequestLoanPage } from '../../src/ui/pages/accountServices/RequestLoanPage';

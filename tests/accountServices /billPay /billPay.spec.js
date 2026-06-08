@@ -16,7 +16,7 @@ test('Successfully pay a bill', async ({
   await homePage.clickBillPayLink();
   await payBillPage.fillPayeeNameField(user.firstName);
   await payBillPage.fillAddressField(user.address);
-  await payBillPage.fillCityField(user.address);
+  await payBillPage.fillCityField(user.city);
   await payBillPage.fillStateField(user.state);
   await payBillPage.fillZipCodeField(user.zipCode);
   await payBillPage.fillPhoneNumberField(user.phone);
